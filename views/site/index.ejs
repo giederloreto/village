@@ -1,0 +1,45 @@
+<% include ./header.ejs %>
+
+<section id="principal">
+  <div class="alert alert-info" role="alert">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>Sejam Bem-vindo! </strong>
+    Este é o novo site do Condominio Village Center.
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>Principais notícias
+    </div>
+    <div class="row">
+
+    <% if(noticias){ 
+         for(var i = 0; i < noticias.length; i++){ 
+    %>
+
+      <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+          <img src="/images/<%= noticias[i].foto %>" />
+          <div class="caption">
+            <h3><%= noticias[i].titulo %></h3>
+            <p class="desc-noticias"><%= noticias[i].descricao %> ... </p>
+            <p>
+              <a href="noticia/<%= noticias[i].idnoticia %>" class="btn btn-primary" role="button">Ver notícia</a>
+            </p>
+            <small class="label label-success"><%= noticias[i].tipo %></small>
+            <small class="label label-warning"><%= noticias[i].datanoticia %> </small>
+          </div>
+        </div>
+      </div>
+
+    <%
+         }
+      } 
+    %>     
+
+    </div>
+  </div>
+</section>
+
+
+<% include ./footer.ejs %>
